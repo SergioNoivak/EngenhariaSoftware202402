@@ -1,0 +1,46 @@
+<div *ngFor="let registro of dataSource">
+{{registro.n}}
+
+
+</div>
+
+''
+<table
+
+*ngIf="dataSource.length>=5"
+mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="n">
+      <th mat-header-cell *matHeaderCellDef> Nitrogênio </th>
+      <td mat-cell *matCellDef="let element"> {{element.n}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="p">
+      <th mat-header-cell *matHeaderCellDef> Fósforo </th>
+      <td mat-cell *matCellDef="let element"> {{element.p}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="k">
+      <th mat-header-cell *matHeaderCellDef> Potassio </th>
+      <td mat-cell *matCellDef="let element"> {{element.k}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="umidade">
+      <th mat-header-cell *matHeaderCellDef> umidade </th>
+      <td mat-cell *matCellDef="let element"> {{element.umidade}} </td>
+    </ng-container>
+    <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef> data </th>
+        <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
